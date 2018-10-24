@@ -17,4 +17,24 @@ The main purpose of this workshop is to introducing you to [Dagger](https://goog
 
 ## Workshop Steps
 
-STEPS MAYBE????????
+- 01 - findViewByIds
+
+- 02 - setOnClickListeners
+
+- 03 - Include ButterKnife in Gradle && OnCreate
+
+- 04 - BindView
+
+- 05 - OnClick with single Id
+
+- 06 - OnClick with multiple Id's
+
+- 07 - Java to Kotlin file conversion
+
+- 08 - Java and Kotlin interoperation
+
+- 09 - Kotlin Android extensions on View Binding
+
+- 10 - Kotlin class declaration
+
+- 11 - Kotlin Null Pointer Free
