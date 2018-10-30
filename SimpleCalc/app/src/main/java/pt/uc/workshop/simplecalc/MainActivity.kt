@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val calculator = Calculator.newInstance()
+    private val calculator = Calculator.instance
 
     // TODO: 05 - ButterKnife OnClick Single Id
     @OnClick(R.id.btnDel)
@@ -58,8 +58,6 @@ class MainActivity : AppCompatActivity() {
         // TODO: 09 - Kotlin Android extensions on View Binding
         tvOperation.text = calculator.operation
         tvResult.text = calculator.result
-
-        // TODO: 10 - Kotlin class declaration
 
         // TODO: 11 - Kotlin Null Pointer Free
     }

@@ -14,12 +14,18 @@ import java.util.*
 
 // TODO: 07 - Java to Kotlin file conversion
 // TODO: 08 - Java and Kotlin interoperation
-class Calculator private constructor() {
+// TODO: 10 - Kotlin class declaration
+class Calculator(var numberPos: Int = 0, val values: ArrayList<String> = arrayListOf()) {
 
-    private var numberPos = 0
-    private val values = ArrayList<String>()
+    private object Holder {
+        val INSTANCE = Calculator()
+    }
 
-    val operation: String
+    companion object {
+        val instance: Calculator by lazy { Holder.INSTANCE }
+    }
+
+    var operation: String = ""
         get() {
             val totalOperation = StringBuilder()
             for (item in values)
@@ -27,10 +33,7 @@ class Calculator private constructor() {
             return totalOperation.toString()
         }
 
-    // Remove symbols from last element in values array
-    // Perform multiplication and division calculations
-    // Perform plus and minus calculations
-    val result: String
+    var result: String = ""
         get() {
             val df = DecimalFormat("###.#")
             if (values.size == 0)
@@ -82,56 +85,40 @@ class Calculator private constructor() {
                 return df.format(java.lang.Double.parseDouble(result.trim { it <= ' ' }))
             }
         }
+}
 
-    fun addNumber(number: String) {
-        if (values.size == 0) {
-            if (number == ".")
-                values.add(0.toString() + ".")
-            else
-                values.add(number)
-        } else {
-            if (values.size <= numberPos)
-                values.add(number)
-            else {
-                var currNumber = values[numberPos]
-                if (number == ".") {
-                    if (!currNumber.contains("."))
-                        currNumber += number
-                } else
+fun Calculator.addNumber(number: String) {
+    if (values.size == 0) {
+        if (number == ".")
+            values.add(0.toString() + ".")
+        else
+            values.add(number)
+    } else {
+        if (values.size <= numberPos)
+            values.add(number)
+        else {
+            var currNumber = values[numberPos]
+            if (number == ".") {
+                if (!currNumber.contains("."))
                     currNumber += number
-                values[numberPos] = currNumber
-            }
+            } else
+                currNumber += number
+            values[numberPos] = currNumber
         }
     }
+}
 
-    fun addOperation(operation: String) {
-        if (values.size == 0) {
-            return
-        } else {
-            when (values[values.size - 1]) {
-                "+" -> return
-                "-" -> return
-                "*" -> return
-                "÷" -> return
-            }
-        }
-        values.add(operation)
-        numberPos += 2
-    }
-
-    fun clear() {
-        this.numberPos = 0
-        this.values.clear()
-    }
-
-    companion object {
-
-        private var calculator: Calculator? = null
-
-        fun newInstance(): Calculator {
-            if (calculator == null)
-                calculator = Calculator()
-            return calculator as Calculator
+fun Calculator.addOperation(operation: String) {
+    if (values.size == 0) return else {
+        when (values[values.size - 1]) {
+            "+", "-", "*", "÷" -> return
         }
     }
+    values.add(operation)
+    numberPos += 2
+}
+
+fun Calculator.clear() {
+    this.numberPos = 0
+    this.values.clear()
 }
