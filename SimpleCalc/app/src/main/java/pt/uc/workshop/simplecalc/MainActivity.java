@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import butterknife.ButterKnife;
 
 /**
  * MainActivity
@@ -19,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // TODO: 03 - Include ButterKnife in Gradle && OnCreate
+        ButterKnife.bind(this);
 
         // TODO: 01 - Implement the findViewById's
         final TextView tvOperation = findViewById(R.id.tvOperation);
@@ -141,8 +145,6 @@ public class MainActivity extends AppCompatActivity {
             calculator.addOperation(((Button) v).getText().toString());
             tvOperation.setText(calculator.getOperation());
         });
-
-        // TODO: 03 - Include ButterKnife in Gradle && OnCreate
 
         // TODO: 04 - BindView
 
