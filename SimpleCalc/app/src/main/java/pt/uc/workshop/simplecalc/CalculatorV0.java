@@ -11,20 +11,20 @@ import java.util.ArrayList;
  * - Convert this file to Kotlin.
  */
 
-public class Calculator {
+public class CalculatorV0 {
 
-    private static Calculator calculator = null;
+    private static CalculatorV0 calculator = null;
 
     private int numberPos = 0;
     private ArrayList<String> values = new ArrayList<>();
 
-    public static Calculator newInstance() {
+    public static CalculatorV0 newInstance() {
         if (calculator == null)
-            calculator = new Calculator();
+            calculator = new CalculatorV0();
         return calculator;
     }
 
-    private Calculator() {
+    private CalculatorV0() {
     }
 
     public void addNumber(String number) {

@@ -46,7 +46,7 @@ class MainActivityV2 extends AppCompatActivity {
         tvOperation.setText(calculator.getOperation());
     }
 
-    final Calculator calculator = Calculator.newInstance();
+    final CalculatorV0 calculator = CalculatorV0.newInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

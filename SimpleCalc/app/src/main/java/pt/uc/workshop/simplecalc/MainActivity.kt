@@ -5,21 +5,19 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import butterknife.ButterKnife
 import butterknife.OnClick
+// TODO: 09 - Kotlin Android extensions on View Binding
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
- * MainActivityV3
- * This activity contains the implementation using Kotlin Android Extensions.
- *
- * Objectives:
- * - Show how Kotlin Extensions and ButterKnife makes the programmers life easy.
+ * MainActivity
+ * This activity is the starting point for the workshop.
  */
 
-internal class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    // TODO: 08 - Java and Kotlin interoperation
-    private val calculator = Calculator.newInstance()
+    private val calculator = Calculator.instance
 
+    // TODO: 05 - ButterKnife OnClick Single Id
     @OnClick(R.id.btnDel)
     fun btnDelClick() {
         calculator.clear()
@@ -55,6 +53,7 @@ internal class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // TODO: 03 - Include ButterKnife in Gradle && OnCreate
         ButterKnife.bind(this)
 
         // TODO: 09 - Kotlin Android extensions on View Binding

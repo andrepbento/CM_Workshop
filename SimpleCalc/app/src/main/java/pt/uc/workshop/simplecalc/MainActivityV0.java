@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 
 class MainActivityV0 extends AppCompatActivity {
 
-    final Calculator calculator = Calculator.newInstance();
+    final CalculatorV0 calculator = CalculatorV0.newInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
