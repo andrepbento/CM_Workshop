@@ -2,7 +2,6 @@ package pt.uc.workshop.simplecalc;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import butterknife.BindView;
@@ -32,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         tvOperation.setText(calculator.getOperation());
     }
 
+    // TODO: 06 - ButterKnife OnClick with multiple Id's
+    @OnClick({R.id.btn7, R.id.btn8, R.id.btn9,
+            R.id.btn4, R.id.btn5, R.id.btn6,
+            R.id.btn1, R.id.btn2, R.id.btn3,
+            R.id.btn0, R.id.btnDot})
+    public void valueBtnClick(Button button) {
+        calculator.addNumber(button.getText().toString());
+        tvOperation.setText(calculator.getOperation());
+    }
+
     final Calculator calculator = Calculator.newInstance();
 
     @Override
@@ -41,88 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO: 03 - Include ButterKnife in Gradle && OnCreate
         ButterKnife.bind(this);
-
-        Button btn7 = findViewById(R.id.btn7);
-        Button btn8 = findViewById(R.id.btn8);
-        Button btn9 = findViewById(R.id.btn9);
-
-        // TODO: 02 - Implement the setOnClickListeners
-        btn7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(((Button) v).getText().toString());
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-        btn8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(((Button) v).getText().toString());
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-        btn9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(((Button) v).getText().toString());
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-
-        Button btn4 = findViewById(R.id.btn4);
-        Button btn5 = findViewById(R.id.btn5);
-        Button btn6 = findViewById(R.id.btn6);
-
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(((Button) v).getText().toString());
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(((Button) v).getText().toString());
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculator.addNumber(getResources().getString(R.string.six_str));
-                tvOperation.setText(calculator.getOperation());
-            }
-        });
-
-        Button btn1 = findViewById(R.id.btn1);
-        Button btn2 = findViewById(R.id.btn2);
-        Button btn3 = findViewById(R.id.btn3);
-
-        btn1.setOnClickListener((v) -> {
-            calculator.addNumber(((Button) v).getText().toString());
-            tvOperation.setText(calculator.getOperation());
-        });
-        btn2.setOnClickListener(v -> {
-            calculator.addNumber(((Button) v).getText().toString());
-            tvOperation.setText(calculator.getOperation());
-        });
-        btn3.setOnClickListener(v -> {
-            calculator.addNumber(((Button) v).getText().toString());
-            tvOperation.setText(calculator.getOperation());
-        });
-
-        Button btn0 = findViewById(R.id.btn0);
-        Button btnDot = findViewById(R.id.btnDot);
-
-        btn0.setOnClickListener(v -> {
-            calculator.addNumber(((Button) v).getText().toString());
-            tvOperation.setText(calculator.getOperation());
-        });
-        btnDot.setOnClickListener(v -> {
-            calculator.addNumber(((Button) v).getText().toString());
-            tvOperation.setText(calculator.getOperation());
-        });
 
         btnEqual.setOnClickListener(v -> {
             tvResult.setText(calculator.getResult());
@@ -156,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
             calculator.addOperation(((Button) v).getText().toString());
             tvOperation.setText(calculator.getOperation());
         });
-
-        // TODO: 06 - OnClick with multiple Id's
 
         // TODO: 07 - Java to Kotlin file conversion
 
