@@ -13,6 +13,7 @@ import java.util.*
  */
 
 // TODO: 07 - Java to Kotlin file conversion
+// TODO: 08 - Java and Kotlin interoperation
 class Calculator private constructor() {
 
     private var numberPos = 0
