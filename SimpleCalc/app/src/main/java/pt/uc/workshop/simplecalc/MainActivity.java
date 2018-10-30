@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         tvOperation.setText(calculator.getOperation());
     }
 
-    final Calculator calculator = Calculator.newInstance();
+    final Calculator calculator = Calculator.Companion.newInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
             calculator.addOperation(((Button) v).getText().toString());
             tvOperation.setText(calculator.getOperation());
         });
-
-        // TODO: 07 - Java to Kotlin file conversion
 
         // TODO: 08 - Java and Kotlin interoperation
 
