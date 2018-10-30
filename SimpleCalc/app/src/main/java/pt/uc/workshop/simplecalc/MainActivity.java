@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -13,6 +14,14 @@ import butterknife.ButterKnife;
  */
 
 public class MainActivity extends AppCompatActivity {
+
+    // TODO: 04 - BindViews with ButterKnife
+    @BindView(R.id.btnEqual)
+    Button btnEqual;
+    @BindView(R.id.tvOperation)
+    TextView tvOperation;
+    @BindView(R.id.tvResult)
+    TextView tvResult;
 
     final Calculator calculator = Calculator.newInstance();
 
@@ -145,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
             calculator.addOperation(((Button) v).getText().toString());
             tvOperation.setText(calculator.getOperation());
         });
-
-        // TODO: 04 - BindView
 
         // TODO: 05 - OnClick with single Id's
 
