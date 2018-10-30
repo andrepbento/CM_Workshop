@@ -33,12 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 03 - Include ButterKnife in Gradle && OnCreate
         ButterKnife.bind(this);
 
-        // TODO: 01 - Implement the findViewById's
-        final TextView tvOperation = findViewById(R.id.tvOperation);
-        final TextView tvResult = findViewById(R.id.tvResult);
-        tvOperation.setText(calculator.getOperation());
-        tvResult.setText(calculator.getResult());
-
         Button btn7 = findViewById(R.id.btn7);
         Button btn8 = findViewById(R.id.btn8);
         Button btn9 = findViewById(R.id.btn9);
@@ -111,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn0 = findViewById(R.id.btn0);
         Button btnDot = findViewById(R.id.btnDot);
-        Button btnEqual = findViewById(R.id.btnEqual);
 
         btn0.setOnClickListener(v -> {
             calculator.addNumber(((Button) v).getText().toString());
