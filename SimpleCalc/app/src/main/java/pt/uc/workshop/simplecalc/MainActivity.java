@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * MainActivity
@@ -22,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOperation;
     @BindView(R.id.tvResult)
     TextView tvResult;
+
+    // TODO: 05 - ButterKnife OnClick Single Id
+    @OnClick(R.id.btnDel)
+    public void btnDelClick() {
+        calculator.clear();
+        tvResult.setText(calculator.getResult());
+        tvOperation.setText(calculator.getOperation());
+    }
 
     final Calculator calculator = Calculator.newInstance();
 
@@ -147,8 +156,6 @@ public class MainActivity extends AppCompatActivity {
             calculator.addOperation(((Button) v).getText().toString());
             tvOperation.setText(calculator.getOperation());
         });
-
-        // TODO: 05 - OnClick with single Id's
 
         // TODO: 06 - OnClick with multiple Id's
 
