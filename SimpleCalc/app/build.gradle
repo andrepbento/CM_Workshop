@@ -35,7 +35,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //TODO: 03 - Include ButterKnife in Gradle
-    implementation 'com.jakewharton:butterknife:9.0.0-rc1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
-    kapt 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
 }
