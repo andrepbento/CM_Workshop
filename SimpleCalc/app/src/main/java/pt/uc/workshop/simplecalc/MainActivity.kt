@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         tvOperation.text = calculator.operation
     }
 
+    // TODO: 11 - Kotlin Null Pointer Free
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -58,7 +59,5 @@ class MainActivity : AppCompatActivity() {
         // TODO: 09 - Kotlin Android extensions on View Binding
         tvOperation.text = calculator.operation
         tvResult.text = calculator.result
-
-        // TODO: 11 - Kotlin Null Pointer Free
     }
 }
